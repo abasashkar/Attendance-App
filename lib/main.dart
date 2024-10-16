@@ -1,6 +1,8 @@
+import 'package:attendance_app/Providers/student-provider.dart';
 import 'package:attendance_app/pages/home.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,8 +21,10 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Home(),
-    );
+    return MultiProvider(
+        providers: [ChangeNotifierProvider(create: (_) => StudentProvider())],
+        child: const MaterialApp(
+          home: Home(),
+        ));
   }
 }

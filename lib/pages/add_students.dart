@@ -177,28 +177,3 @@ class _AddStudentState extends State<AddStudent> {
     );
   }
 }
-
-
-
- //    onTap: () {
-//                 if (namecontroller.text != "" &&
-//                     rollnocontroller.text != "" &&
-//                     agecontroller.text != "") {
-//                   String addid = randomAlphaNumeric(10);
-//                   Map<String, dynamic> studentInfoMap = {
-//                     "Name": namecontroller.text,
-//                     "RollNo": rollnocontroller.text,
-//                     "Age": agecontroller.text,
-//                     "Present": false,
-//                     "Absent": false,
-//                   };
-//                   DatabaseMethods().addStudent(studentInfoMap, addid).then(
-//                       (value) => ScaffoldMessenger.of(context)
-//                           .showSnackBar(const SnackBar(
-//                               backgroundColor: Colors.green,
-//                               content: Text(
-//                                 "Student data has been uploaded",
-//                                 style: TextStyle(fontSize: 20.0),
-//                               ))));
-//                 }
-//               },

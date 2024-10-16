@@ -1,4 +1,5 @@
-import 'package:attendance_app/pages/add_student.dart';
+import 'package:attendance_app/Providers/student-provider.dart';
+import 'package:attendance_app/pages/add_students.dart';
 import 'package:attendance_app/services/database.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -73,8 +74,8 @@ class _HomeState extends State<Home> {
                             const Spacer(),
                             GestureDetector(
                                 onTap: () async {
-                                  await DatabaseMethods()
-                                      .deleteStudentData(ds.id);
+                                  await DatabaseMethods();
+                                  StudentProvider().deleteStudentData(ds.id);
                                 },
                                 child: const Icon(Icons.delete_outline_sharp)),
                           ],
@@ -145,7 +146,8 @@ class _HomeState extends State<Home> {
                             ds["Present"] == false
                                 ? GestureDetector(
                                     onTap: () async {
-                                      await DatabaseMethods()
+                                      DatabaseMethods();
+                                      StudentProvider()
                                           .updateAttendance("Present", ds.id);
                                     },
                                     child: Container(
@@ -191,7 +193,8 @@ class _HomeState extends State<Home> {
                             ds["Absent"] == false
                                 ? GestureDetector(
                                     onTap: () async {
-                                      await DatabaseMethods()
+                                      await DatabaseMethods();
+                                      StudentProvider()
                                           .updateAttendance("Absent", ds.id);
                                     },
                                     child: Container(
